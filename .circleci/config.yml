@@ -10,7 +10,13 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm test
+            - run:
+                name: Testing
+                command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+            # End to End test
+            - run:
+                 name: End to End Test
+                 command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 workflows:
     build-and-test:
       jobs:
