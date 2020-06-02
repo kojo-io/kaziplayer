@@ -228,4 +228,5 @@ export class KzCalendarComponent implements OnInit {
     index.classList.add('selected');
     this.kzDateChange.emit(date);
   }
+
 }
